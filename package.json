@@ -1,0 +1,17 @@
+{
+  "name": "wdc-bot",
+  "version": "1.0.0",
+  "description": "A DSU Web Dev Club project",
+  "main": "wdc-bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./wdc-bot.js",
+    "deploy": "node ./.deploy-commands.js"
+  },
+  "author": "Bryston Ahrendt",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^1.5.0",
+    "discord.js": "^14.7.1"
+  }
+}
