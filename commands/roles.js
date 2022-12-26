@@ -45,7 +45,7 @@ module.exports = {
 			);
 
 		await interaction.reply({ content: 'Pick your roles.', components: [row], ephemeral: true });
-        return { message: "[Embed]", args: { none: "none" } }
+        return { message: "Role Picker", args: { none: "none" } }
 	},
     async select(interaction){
         if (interaction.values.includes("REMOVE")){
@@ -69,6 +69,16 @@ module.exports = {
                 }
             }
             interaction.reply({ content: 'Removed roles.',  ephemeral: true });
+            return { 
+                message: "Removed roles.", 
+                args: { roles: values.map(element => {
+                    if (element == "REMOVE"){ return "Remove"}
+                    else {
+                        return interaction.guild.roles.cache.find(roles => roles.id == element).name;
+                    }
+                    })
+                } 
+            }
         }
         else {
             let values = interaction.values;
@@ -85,6 +95,16 @@ module.exports = {
                 }
             }
             interaction.reply({ content: 'Added roles.',  ephemeral: true });
+            return { 
+                message: "Added roles.", 
+                args: { roles: values.map(element => {
+                    if (element == "REMOVE"){ return "Remove"}
+                    else {
+                        return interaction.guild.roles.cache.find(roles => roles.id == element).name;
+                    }
+                    })
+                } 
+            }
         }
     }
 };
